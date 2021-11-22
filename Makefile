@@ -2,7 +2,8 @@ setup:
 	pip install -r requirements.txt
 
 test: setup
-	pytest tests
+	python -m playwright install chromium
+	python -m pytest -p no:warnings -sv tests
 
 help:
 	@echo 'Usage: make <command>'
