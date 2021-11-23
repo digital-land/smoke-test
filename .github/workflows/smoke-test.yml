@@ -15,4 +15,11 @@ jobs:
         with:
             python-version: '3.x'
       - name: Run tests
+        id: tests
         run: make test
+#        continue-on-error: true
+#      - name: Check test failures
+#        if: steps.tests.outcome != 'success'
+#        run: |
+#          make report-error
+#          exit -1
