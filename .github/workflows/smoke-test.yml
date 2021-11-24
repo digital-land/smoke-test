@@ -17,9 +17,11 @@ jobs:
       - name: Run tests
         id: tests
         run: make test
-#        continue-on-error: true
-#      - name: Check test failures
-#        if: steps.tests.outcome != 'success'
-#        run: |
-#          make report-error
-#          exit -1
+        continue-on-error: true
+      - name: Check test failures
+        env:
+          SLACK_SMOKE_TEST_WEB_HOOK_URL: ${{ secrets.SLACK_SMOKE_TEST_WEB_HOOK_URL }}
+        if: steps.tests.outcome != 'success'
+        run: |
+          make report-error
+          exit -1
