@@ -38,5 +38,5 @@ def test_get_json():
     assert data['entry-date'] == '2021-05-26'
     assert data['name'] == 'WILK WOOD'
     assert data['dataset'] == 'ancient-woodland'
-    assert data['typology'] == 'geographee'
+    assert data['typology'] == 'geography'
     assert data.get('geojson')
