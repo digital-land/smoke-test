@@ -1,7 +1,12 @@
+import click
 import requests
-import os
 
 
-SLACK_URL = os.environ.get("SLACK_SMOKE_TEST_WEB_HOOK_URL")
-if SLACK_URL is not None:
-    requests.post(SLACK_URL, json={"text":"this *just* a test from smoke test trial"})
+@click.command()
+@click.option('--slackurl', help="The webhook url for slack app you're posting to", required=True)
+def post_error_to_slack(slackurl):
+    requests.post(slackurl, json={"text":"this *just* another test from smoke test trial"})
+
+
+if __name__ == '__main__':
+    post_error_to_slack()

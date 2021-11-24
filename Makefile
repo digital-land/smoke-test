@@ -5,9 +5,6 @@ test: setup
 	python -m playwright install chromium
 	python -m pytest -p no:warnings tests
 
-report-error:
-	python -m  report.slack_error
-
 help:
 	@echo 'Usage: make <command>'
 	@echo
