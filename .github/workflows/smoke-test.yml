@@ -1,4 +1,4 @@
-name: Digital land smoke test
+name: digital-land-smoke-test
 on:
   schedule:
     - cron: "*/15 * * * *"
