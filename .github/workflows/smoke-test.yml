@@ -24,4 +24,3 @@ jobs:
         if: steps.tests.outcome != 'success'
         run: |
           python -m  report.slack_error --slackurl $SLACK_SMOKE_TEST_WEB_HOOK_URL
-          exit -1

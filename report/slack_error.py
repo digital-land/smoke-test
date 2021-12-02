@@ -1,3 +1,5 @@
+import sys
+import os
 import click
 import requests
 
@@ -10,3 +12,4 @@ def post_error_to_slack(slackurl):
 
 if __name__ == '__main__':
     post_error_to_slack()
+    sys.exit(-1)
