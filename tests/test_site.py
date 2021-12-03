@@ -27,8 +27,6 @@ def test_html_pages(page):
     page.click("//article/div[1]/div[2]/dl/div/dd/a")
     assert page.inner_text("//html/body/div[2]/main/span") == "Ancient woodland"
 
-    print("the page")
-
 
 def test_get_json():
     json_url = f"{BASE_URL}/dataset/local-authority-eng.json"
@@ -36,5 +34,5 @@ def test_get_json():
     resp.raise_for_status()
     data = resp.json()
 
-    assert data['collection'] == 'organisation'
-    assert data['dataset'] == 'local-authority-eng'
+    assert data["collection"] == "organisation"
+    assert data["dataset"] == "local-authority-eng"
