@@ -24,19 +24,17 @@ def test_html_pages(page):
         == f"{BASE_URL}/entity/?dataset=ancient-woodland&entries=all&entry_entry_date_day=&entry_entry_date_month=&entry_entry_date_year="
     )
 
-    page.click("text=11345")
-    assert page.url == f"{BASE_URL}/entity/11345"
+    page.click("//article/div[1]/div[2]/dl/div/dd/a")
+    assert page.inner_text("//html/body/div[2]/main/span") == "Ancient woodland"
+
+    print("the page")
 
 
 def test_get_json():
-    json_url = f"{BASE_URL}/entity/11345.json"
+    json_url = f"{BASE_URL}/dataset/local-authority-eng.json"
     resp = requests.get(json_url)
     resp.raise_for_status()
     data = resp.json()
 
-    assert data['entity'] == '11345'
-    assert data['entry-date'] == '2021-05-26'
-    assert data['name'] == 'WILK WOOD'
-    assert data['dataset'] == 'ancient-woodland'
-    assert data['typology'] == 'geography'
-    assert data.get('geojson')
+    assert data['collection'] == 'organisation'
+    assert data['dataset'] == 'local-authority-eng'
