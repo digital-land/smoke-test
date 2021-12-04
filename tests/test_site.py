@@ -7,11 +7,12 @@ BASE_URL = f"https://www.digital-land.info"
 def test_html_pages(page):
 
     page.goto(f"{BASE_URL}")
+
     page.click("text=Datasets")
     assert page.url == f"{BASE_URL}/dataset/"
-    page.click("text=Brownfield site")
-    assert page.url == f"{BASE_URL}/dataset/brownfield-site"
-    page.click('h1:has-text("Brownfield site")')
+    page.click("text=Green belt")
+    assert page.url == f"{BASE_URL}/dataset/green-belt"
+    page.click('h1:has-text("Green belt")')
     page.click("text=Datasets")
     assert page.url == f"{BASE_URL}/dataset/"
 
