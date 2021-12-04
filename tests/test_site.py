@@ -6,27 +6,31 @@ BASE_URL = f"https://www.digital-land.info"
 
 def test_html_pages(page):
 
-    page.goto(f"{BASE_URL}")
+    page.goto(BASE_URL)
+
+    page.click("text=Datasets")
+    assert page.url == f"{BASE_URL}/dataset/"
+    assert page.text_content("h1") == "Datasets"
+    page.goto(BASE_URL)
+
+    page.click("text=Map")
+    assert page.url == f"{BASE_URL}/map/"
+    assert page.text_content("h1") == "National map of planning data"
+    page.goto(BASE_URL)
+
+    page.click("text=Search")
+    assert page.url == f"{BASE_URL}/entity/"
+    assert page.text_content("h1") == "Search for planning and housing data"
+    page.goto(BASE_URL)
 
     page.click("text=Datasets")
     assert page.url == f"{BASE_URL}/dataset/"
     page.click("text=Green belt")
     assert page.url == f"{BASE_URL}/dataset/green-belt"
-    page.click('h1:has-text("Green belt")')
+    assert page.text_content("h1") == "Green belt"
+
     page.click("text=Datasets")
     assert page.url == f"{BASE_URL}/dataset/"
-
-    page.goto(f"{BASE_URL}/entity/")
-    assert page.inner_text("h1") == "Search for planning and housing data"
-    page.click("text=Ancient woodland")
-    page.click('button:has-text("Search")')
-    assert (
-        page.url
-        == f"{BASE_URL}/entity/?dataset=ancient-woodland&entries=all&entry_entry_date_day=&entry_entry_date_month=&entry_entry_date_year="
-    )
-
-    page.click("//article/div[1]/div[2]/dl/div/dd/a")
-    assert page.inner_text("//html/body/div[2]/main/span") == "Ancient woodland"
 
 
 def test_get_json():
