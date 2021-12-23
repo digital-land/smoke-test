@@ -1,6 +1,7 @@
 attrs==21.2.0
 certifi==2021.10.8
 charset-normalizer==2.0.9
+click==8.0.3
 idna==3.3
 iniconfig==1.1.1
 packaging==21.3
