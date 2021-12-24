@@ -12,7 +12,7 @@ import requests
     "--github_run_number", help="Url for failed test run", required=True
 )
 def post_error_to_slack(slackurl, github_run_number):
-    github_actions_link = f"https://github.com/digital-land/smoke-test/runs/{github_run_number}?check_suite_focus=true"
+    github_actions_link = f"https://github.com/digital-land/smoke-test/actions/runs/{github_run_number}"
     requests.post(
         slackurl,
         json={
