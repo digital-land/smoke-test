@@ -16,7 +16,7 @@ def post_error_to_slack(slackurl, github_run_number):
     requests.post(
         slackurl,
         json={
-            "text": "Smoke tests failed - details here {github_actions_link}"
+            "text": f"Smoke tests failed - details here {github_actions_link}"
         },
     )
 
