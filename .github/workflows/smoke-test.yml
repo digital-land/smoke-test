@@ -23,8 +23,8 @@ jobs:
       - name: Check test failures
         env:
           SLACK_SMOKE_TEST_WEB_HOOK_URL: ${{ secrets.SLACK_SMOKE_TEST_WEB_HOOK_URL }}
-          GITHUB_RUN_NUMBER: ${{ env.GITHUB_RUN_NUMBER }}
+          GITHUB_RUN_ID: ${{ env.GITHUB_RUN_ID }}
         if: steps.tests.outcome == 'success'
         run: |
-          python -m  report.slack_error --slackurl $SLACK_SMOKE_TEST_WEB_HOOK_URL --github_run_number $GITHUB_RUN_NUMBER
+          python -m  report.slack_error --slackurl $SLACK_SMOKE_TEST_WEB_HOOK_URL --github_run_number $GITHUB_RUN_ID
           exit 1
