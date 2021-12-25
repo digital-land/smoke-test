@@ -1,7 +1,7 @@
 name: digital-land-smoke-test
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "* 5 * * *"
   push:
     branches: [ main ]
   workflow_dispatch:
