@@ -11,9 +11,6 @@ def test_get_healthcheck():
     data = resp.json()
 
     assert data["status"] == "OK"
-    # assert data["dataset_count"] > 0
-    # assert data["entity_count"] > 0
-
 
 def test_get_json():
     json_url = f"{BASE_URL}/dataset/local-authority-eng.json"
