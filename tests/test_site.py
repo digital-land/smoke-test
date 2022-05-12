@@ -4,13 +4,22 @@ import random
 BASE_URL = f"https://www.digital-land.info"
 
 
-def test_get_healthcheck():
+def test_get_healthcheck_status():
     json_url = f"{BASE_URL}/health"
     resp = requests.get(json_url)
     resp.raise_for_status()
     data = resp.json()
 
     assert data["status"] == "OK"
+
+
+def test_get_healthcheck_entities():
+    json_url = f"{BASE_URL}/health"
+    resp = requests.get(json_url)
+    resp.raise_for_status()
+    data = resp.json()
+
+    assert data["entities_present"] == "OK"
 
 
 def test_get_datasets():
