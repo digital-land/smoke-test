@@ -48,6 +48,10 @@ def test_get_enities():
     assert data.get("links") is not None
 
     # try a few random offsets
+    json_url = f"{BASE_URL}/entity.json"
+    resp = requests.get(json_url)
+    resp.raise_for_status()
+    data = resp.json()
     count = data.get("count")
     sample_offsets = random.sample(range(1, count), 5)
     for offset in sample_offsets:
